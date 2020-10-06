@@ -1,19 +1,30 @@
 <!DOCTYPE html>
+
+
 <html>
 
+
+
 <head>
+
+
     <meta charset="UTF-8">
+
+
     <title>IQOption</title>
     <link rel="shortcut icon" href="ico/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&amp;family=Roboto:wght@500&amp;display=swap"
+          rel="stylesheet">
+
     <style>
+
 
         html, body {
 
             height: 100%;
+
             width: 100%;
-            overflow-x: hidden;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Roboto', sans-serif;
 
         }
 
@@ -26,11 +37,8 @@
 
         }
 
-        a, a:hover, a:focus {
-            text-decoration: none;
-        }
 
-        .wrapper {
+        .svg-wrapper {
 
             /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#192431+0,1f3b60+50,192431+100 */
 
@@ -40,117 +48,1186 @@
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#192431', endColorstr='#192431', GradientType=1); /* IE6-9 fallback on horizontal gradient */
 
             width: 50vw;
-            max-width: 750px;
+            max-width: 888px;
 
-            padding: 0 2vw;
+       
 
-            height: 70vh;
+            height: 90vh;
 
             margin: 0 auto;
 
-            margin-top: 10vh;
+            margin-top: 5vh;
 
             z-index: 100;
 
             position: relative;
 
             overflow: hidden;
+
+
+        }
+
+        .lines {
+
+            width: 100%;
+
+            height: 100%;
+
+            margin: 0;
+
+            padding: 0;
+
+            list-style: none;
+
             display: flex;
+
             flex-direction: column;
-            justify-content: center;
+
+            align-items: stretch;
+
+            justify-content: space-around;
+
+            color: #FFDC3C;
+
+        }
+
+        .line {
+
+            display: flex;
+
             align-items: center;
 
+            justify-content: space-between;
+
         }
 
-        .logo img {
-            max-width: 330px;
-            height: auto;
+        .line__length {
+
+            width: 80%;
+
+            height: 2px;
+
+            background-color: #FFDC3C;
+
         }
 
-        h1 {
-            color: #32CD50;
-            font-size: 4rem;
-            font-weight: 600;
-            padding: 0 4vw;
+        #svg {
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 110%;
+
+            height: 110%;
+
+            transition: all 1s ease;
+
+        }
+
+        .line__content {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+        }
+
+        /*Голубая линия графика*/
+
+        .path_1 {
+
+            fill: none;
+
+            stroke: #0080FF;
+
+            stroke-width: 3px;
+
+            stroke-linecap: butt;
+
+            stroke-linejoin: miter;
+
+            stroke-opacity: 1
+
+        }
+
+        /*Градиент под голубой линией*/
+
+        .path_2 {
+
+            display: inline;
+
+            fill: #0080FF;
+
+            stroke: 0;
+
+            opacity: 0.2;
+
+            fill: url(#gradient);
+
+        }
+
+        /*Цвета градиентов под голубой линией*/
+
+        .main-stop {
+
+            stop-color: #0080FF;
+
+        }
+
+        .alt-center {
+
+            stop-color: #0080FF;
+
+        }
+
+        .alt-stop {
+
+            stop-color: #192533;
+
+        }
+
+        /*Путь при нажатии на красную кнопку*/
+
+        .path_3 {
+
+            fill: none;
+
+            stroke: #0e9fe8;
+
+            stroke-width: 3px;
+
+            stroke-linecap: butt;
+
+            stroke-linejoin: miter;
+
+            stroke-opacity: 1
+
+        }
+
+        /*Градиент при нажатии на красную кнопку*/
+
+        .path_4 {
+
+            display: inline;
+
+            fill: #17354f;
+
+            stroke: 0;
+
+            opacity: 0.4;
+
+            fill: url(#gradientred);
+
+        }
+
+        /*Цвета градиентов при нажатии на красную кнопку*/
+
+        .main-stop-red {
+
+            stop-color: #F05032;
+
+        }
+
+        .alt-center-red {
+
+            stop-color: #464953;
+
+        }
+
+        .alt-stop-red {
+
+            stop-color: #464953;
+
+        }
+
+        /*Красная линия*/
+
+        .redline {
+
+            display: inline;
+
+            fill: none;
+
+            stroke: #F05032;
+
+            stroke-width: 3;
+
+            stroke-linecap: butt;
+
+            stroke-linejoin: miter;
+
+            stroke-miterlimit: 4;
+
+            stroke-dasharray: none;
+
+            stroke-opacity: 1;
+
+        }
+
+        /*Красный ярлык*/
+
+        .svg-lable {
+
+            fill: #de5439;
+
+            fill-opacity: 1;
+
+            stroke: none;
+
+        }
+
+        /*Текст на красном ярлыке*/
+
+        .svg-text {
+
+            fill: #fff;
+
+            font-weight: lighter;
+
+            font-size: 25px;
+
+            line-height: 1.25;
+
+        }
+
+        /*Буллет белый*/
+
+        .whiteellipse {
+
+            fill: #ffffff;
+
+            stroke: none;
+
+        }
+
+        /*Буллет светлокрасный*/
+
+        .redlightellipse {
+
+            fill: #e56b54;
+
+            stroke: none;
+
+        }
+
+        /*Буллет красный*/
+
+        .redellipse {
+
+            fill: #de5439;
+
+            stroke: none;
+
+        }
+
+        /*Путь при нажатии на зеленую кнопку*/
+
+        .path_5 {
+
+            fill: none;
+
+            stroke: #0e9fe8;
+            stroke: #0e9fe8;
+
+            stroke-width: 3px;
+
+            stroke-linecap: butt;
+
+            stroke-linejoin: miter;
+
+            stroke-opacity: 1
+
+        }
+
+        /*Градиент при нажатии на зеленую кнопку*/
+
+        .path_6 {
+
+            display: inline;
+
+            fill: #17354f;
+
+            stroke: 0;
+
+            opacity: 0.4;
+
+            fill: url(#gradientgreen);
+
+        }
+
+        /*Цвета градиентов при нажатии на зеленую кнопку*/
+
+        .main-stop-green {
+
+            stop-color: #464953;
+
+        }
+
+        .alt-center-green {
+
+            stop-color: #464953;
+
+        }
+
+        .alt-stop-green {
+
+            stop-color: #32CD50;
+
+        }
+
+        /*Красная линия*/
+
+        .greenline {
+
+            display: inline;
+
+            fill: none;
+
+            stroke: #32CD50;
+
+            stroke-width: 3;
+
+            stroke-linecap: butt;
+
+            stroke-linejoin: miter;
+
+            stroke-miterlimit: 4;
+
+            stroke-dasharray: none;
+
+            stroke-opacity: 1;
+
+        }
+
+        /*Зеленый ярлык*/
+
+        .svg-lable-green {
+
+            fill: #32CD50;
+
+            fill-opacity: 1;
+
+            stroke: none;
+
+        }
+
+        /*Текст на зеленом ярлыке*/
+
+        .svg-text-green {
+
+            fill: #fff;
+
+            font-weight: lighter;
+
+            font-size: 25px;
+
+            line-height: 1.25;
+
+        }
+
+        /*Буллет белый*/
+
+        .whiteellipse {
+
+            fill: #ffffff;
+
+            stroke: none;
+
+        }
+
+        /*Буллет светлозеленый*/
+
+        .greenlightellipse {
+
+            fill: #32CD50;
+
+            stroke: none;
+
+        }
+
+        /*Буллет зеленый*/
+
+        .greenellipse {
+
+            fill: #1e8956;
+
+            stroke: none;
+
+        }
+
+        .arrow_red {
+            fill: #bf4831;
+            stroke: 0;
+        }
+
+        .arrow_green {
+            fill: #1e8956;
+            stroke: 0;
+        }
+
+        .title {
+
             text-align: center;
-            font-family: 'Open Sans', sans-serif;
+
+            position: absolute;
+
+            top: 40px;
+
+            transition: all 1s linear;
+
+            animation-name: toTop;
+
+            animation-duration: 1s;
+
+            z-index: 150;
+
+
         }
 
-        .subtitle {
-            color: #fff;
-            font-size: 3.5rem;
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 400;
+        .title h1 {
+
+            color: white;
+
+            font-size: 4em;
+
+            line-height: normal;
+
+            padding: 0 1em;
+            letter-spacing: 1px;
+
+        }
+        .title h1 span {
+            background-color: #F05032;
         }
 
-        .subtitle span {
-            font-weight: 800;
+
+        @keyframes toTop {
+
+            from {
+
+                top: -50px;
+
+            }
+
+
+            to {
+
+                top: 40px;
+
+            }
+
+            75% {
+
+                top: 60px;
+
+            }
+
         }
 
-        .btn__blue {
-            color: #ffffff;
-            background: #0080FF;
+        .btn_wrapper {
+
+            position: absolute;
+
+            right: 0;
+
+            left: 0;
+
+            bottom: 5vh;
+
+            display: flex;
+
+            padding: 0 20px;
+
+            justify-content: center;
+
+            z-index: 150;
+
+        }
+
+        .btn {
+
+            margin: 0 2rem;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            height: 6rem;
+            font-size: 1.3em;
+
+            font-weight: 900;
+
             text-transform: uppercase;
-            font-weight: 600;
-            font-size: 2.5rem;
-            padding: 20px 30px;
-            max-width: 487px;
-            width: 100%;
-            text-align: center;
-            text-decoration: none;
-            margin-top: auto;
+
             border-radius: 6px;
+
+            animation-name: pulse;
+
+            animation-iteration-count: infinite;
+
+            animation-duration: 2s;
+
+
         }
 
-        .btn__blue:hover, .btn__blue:focus {
-            color: #ffffff;
+        .btn_one {
+
+            background-color: #F05032;
+
+            color: #F05032;
+
+        }
+
+        .btn_two {
+
+            background-color: #32CD50;
+
+            color: #32CD50;
+
+
+        }
+
+
+        @keyframes pulse {
+
+            0% {
+
+                transform: scale(0.95);
+
+            }
+
+
+            50% {
+
+                transform: scale(1.1);
+
+            }
+
+
+            100% {
+
+                transform: scale(0.95);
+
+            }
+
+
+        }
+
+
+        .redBtnEvent, .greenBtnEvent {
+
+            display: none;
+
+            transition: all 1s ease;
+
         }
 
         @media (max-width: 1024px) {
 
             body {
-                display: flex;
-                align-items: center;
-                font-size: 22px;
+
+                font-size: 18px;
 
             }
 
-            .wrapper {
-                margin-top: auto;
-                margin-bottom: auto;
+            .svg-wrapper {
+
                 width: 95vw;
-                height: auto;
-                min-height: 70vh;
+
             }
 
-            h1 {
-                font-size: 5rem;
+            .btn_wrapper {
+
+                right: 0;
+
             }
 
-            .subtitle {
-                font-size: 4.2rem;
+            .btn {
+                width: 35%;
+                height: 8rem;
             }
 
-            .btn__blue {
-                font-size: 2.8rem;
-                line-height: 6rem;
-                margin-bottom: auto;
-            }
         }
 
     </style>
-    </head>
-<body>
-<img src="https://syncerurl.com/adv_ret?aid=84171&pid=1043">
-<div class="wrapper">
-    <a target="_blank"
-       href="https://reportz.kintura.io/click">
-        <h1>Dự đoán của bạn đã đúng!</h1></a>
-    <div class="subtitle">Lợi nhuận của bạn là <span>$520</span></div>
-    <a target="_blank"
-       href="https://reportz.kintura.io/click"
-       class="btn btn__blue">BẮT ĐẦU KIẾM TIỀN</a>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WRM9Z4J');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRM9Z4J"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+</head>
+
+
+<body style="margin:0px;">
+
+
+<div class="svg-wrapper">
+
+    <div class="title">
+
+        <h1><span>Tỷ giá hối đoái đồng đô la đang đi theo hướng nào?</span></h1>
+
+    </div>
+
+    <div class="btn_wrapper">
+
+        <a href="#" class="btn btn_one" id="btn_one">
+            <svg xmlns="http://www.w3.org/2000/svg" id="svg60" width="53.973934" height="29.181982"
+                 viewBox="0 0 53.973934 29.181982">
+                <g
+                        id="g68"
+                        transform="translate(-317.47052,-232.81531)">
+                    <path class="arrow_red"
+                          d="m 318.69047,233.31603 51.82175,-7.1e-4 0.42203,11.12727 -25.1641,16.92556 -2.39606,0.12155 -25.1903,-16.43503 -0.2053,-11.66267 z"
+                          id="path74"/>
+                </g>
+            </svg>
+        </a>
+
+        <a href="#" class="btn btn_two" id="btn_two">
+            <svg xmlns="http://www.w3.org/2000/svg" id="svg60" width="53.973934" height="29.181982"
+                 viewBox="0 0 53.973934 29.181982">
+                <g
+                        id="g68"
+                        transform="translate(-317.47052,-232.81531)">
+                    <path class="arrow_green"
+                          d="m 370.21325,261.71005 -51.82016,-0.40517 -0.33487,-11.13024 25.2959,-16.72794 2.39694,-0.10278 25.0608,16.63182 0.11395,11.66392 z"
+                          id="path74"/>
+                </g>
+            </svg>
+        </a>
+
+    </div>
+
+    <ul class="lines">
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11680</div>
+
+        </li>
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11670</div>
+
+        </li>
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11660</div>
+
+        </li>
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11650</div>
+
+        </li>
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11640</div>
+
+        </li>
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11630</div>
+
+        </li>
+
+        <li class="line">
+
+            <div class="line__length"></div>
+
+            <div class="line__content">1.11620</div>
+
+        </li>
+
+
+    </ul>
+
+    <svg xmlns="http://www.w3.org/2000/svg" id="svg" viewBox="0 0 1004 855">
+
+        <defs>
+
+            <!--Три градиента для линий графика. в css использовать как fill: url(#здесь id градиента); -->
+
+            <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+
+                <stop class="main-stop" offset="0%"/>
+
+                <stop class="alt-center" offset="60%"/>
+
+                <stop class="alt-stop" offset="100%"/>
+
+            </linearGradient>
+
+            <linearGradient id="gradientred" x1="0" x2="0" y1="0" y2="1">
+
+                <stop class="main-stop-red" offset="0%"/>
+
+                <stop class="alt-center-red" offset="60%"/>
+
+                <stop class="alt-stop-red" offset="100%"/>
+
+            </linearGradient>
+
+            <linearGradient id="gradientgreen" x1="0" x2="0" y1="0" y2="1">
+
+                <stop class="main-stop-green" offset="0%"/>
+
+                <stop class="alt-stop-green" offset="100%"/>
+
+            </linearGradient>
+
+        </defs>
+
+        <!--градиенты end-->
+
+        <!--первая линия графика. в css стилизуется ее класс-->
+
+        <path
+
+                class="path_1"
+
+                d="m -4.6477237,409.12592 6.841649,15.00232 10.2558347,0.30035 3.301638,21.61773 7.134101,-11.3246 3.931677,-22.7005 28.347276,3.25058 3.323226,38.01544 25.256086,22.79412 4.41203,-22.60706 6.584035,2.7209 3.67202,11.12042 4.032921,-3.01295 10.19298,-31.7137 13.80415,17.67271 3.66046,-10.27703 2.515,10.34714 8.88382,-14.08973 10.55622,35.47215 3.35689,-28.43429 21.10507,9.85085 28.33032,-0.3589 3.26277,-9.14459 11.40814,-4.14821 3.38583,12.4016 14.59595,14.04451 13.64669,-12.66177 17.98975,0.27916 3.48011,-22.03145 11.29687,0.14297 3.44222,-9.24747 10.86158,-3.5943 3.98776,-20.20364 14.02324,3.85732 2.90571,9.33639 14.42643,3.82611 7.72813,9.56469 26.66939,-1.10019 4.72335,22.4254 9.56835,-0.30323 7.9464,-40.09991 7.50104,15.29732 9.60517,3.69817 23.79367,-23.39671 8.20148,-2.00701 0.44692,0.15007"
+
+                id="path_blue" stroke-dasharray="832" stroke-dashoffset="832">
+
+            <animate id="p1" attributeName="stroke-dashoffset" begin="svg.click"
+
+                     values="832; 0" dur="1.5s" repeatCount="1" fill="freeze" calcMode="linear"/>
+
+        </path>
+
+        <!--первый градиент-->
+
+        <path
+
+                class="path_2"
+
+                d="m -5.1818044,410.01376 6.8329917,15.02746 9.9531687,0.35322 3.827921,23.05494 8.412694,-13.33776 3.780196,-22.0878 26.825679,3.18417 3.138303,37.69758 26.842143,23.99509 4.447932,-23.25735 5.58168,2.64828 3.526391,11.62689 5.435545,-4.2341 9.56326,-30.03256 13.79292,17.4728 3.20192,-9.00575 2.18383,9.47139 9.0856,-14.04394 c 0,0 8.49504,29.652 10.71667,35.24168 2.02031,-7.36196 4.2579,-29.06664 4.2579,-29.06664 l 20.28704,9.38212 29.06562,-0.28654 3.32967,-9.50773 10.06341,-3.56098 3.03463,11.69474 15.48289,14.86242 13.90038,-13.12867 18.39266,0.29449 3.64494,-21.94173 11.21183,0.16724 3.48275,-9.62981 10.94739,-3.57443 3.762,-19.70961 12.74976,3.45039 2.69956,9.36278 14.82283,3.93584 7.84958,9.698 26.3792,-1.09278 4.5643,22.23209 11.21273,-0.19682 7.49834,-38.01035 6.3189,12.93215 10.53637,4.20319 24.12585,-23.71408 7.48427,-1.86995 -0.0547,0.97696 3.06417,767.57731 -448.7174511,2.2944 z"
+
+                id="path191">
+
+        </path>
+
+        <!-- градиент для линии графика при нажатии на красную кнопку-->
+
+        <path
+
+                class="path_4 redBtnEvent"
+
+                d="m 436.3978,400.62462 473.15934,-1.09819 0.92673,824.13317 -471.56358,-6.9002 z"
+
+                id="pathredgr"/>
+
+        <!-- линия графика при нажатии на красную кнопку-->
+
+        <path
+
+                class="path_3 redBtnEvent"
+
+                d="m 439.07184,400.71333 9.40429,0.54635 12.39863,-46.51992 7.92875,21.35379 3.8687,-17.36953 7.02706,-14.35132 8.21448,24.68705 3.34949,-17.33216 3.1863,30.80973 4.98411,6.5314 10.235,-5.94266 4.50339,-32.99125 11.6513,-14.57043 7.06417,-32.00837 11.14163,85.01032 18.9314,4.6273 3.84048,-21.92997 10.96357,2.14992 8.16328,34.2036 23.2267,-0.46359 6.61041,9.05811 30.13904,-0.11843 7.58121,27.67527 15.24618,-2.40419 3.67126,-9.12044 14.12414,-4.36163 4.30569,69.78118 11.49715,3.54875 3.70156,29.76232 -0.2567,-19.36297 12.02566,-0.41119 3.95648,22.79543 18.61465,0.90038 16.0161,12.71914 13.86684,0.42871 4.59734,-13.57216 10.98959,3.51596 4.90278,10.72245 29.51523,-4.0093 -0.23512,22.26335 15.49547,16.6887 7.71224,-54.13897 3.15457,13.78825 12.03939,-61.33669 6.90409,15.66362 3.88985,-12.63413 4.02006,11.82156 15.11857,-19.43792 11.55061,84.39651 4.45166,3.20217 4.7009,-17.69503 0.1756,0.86045"
+
+                id="pathred" stroke-dasharray="1241" stroke-dashoffset="1241">
+
+            <animate id="p2" attributeName="stroke-dashoffset" begin="svg.click"
+
+                     values="1241; 0" dur="3s" repeatCount="1" fill="freeze" calcMode="linear"/>
+
+        </path>
+
+        </path>
+
+
+        <!-- красная толстая линияпри нажатии на красную кнопку-->
+
+        <path
+
+                class="redline redBtnEvent"
+
+                d="m 421.4761,403.59826 487.0559,-0.88915 0.53048,-0.61225"
+
+                id="path1115"
+
+        />
+
+        <!-- красные буллеты-->
+
+        <ellipse class="redBtnEvent redellipse"
+
+                 id="path1121"
+
+                 cx="909.09338"
+
+                 cy="402.76419"
+
+                 rx="11.067379"
+
+                 ry="11.309731"/>
+
+        <ellipse class="redBtnEvent redlightellipse"
+
+                 id="path1119"
+
+                 cx="909.15265"
+
+                 cy="402.34979"
+
+                 rx="7.2911406"
+
+                 ry="7.4545412"/>
+
+        <ellipse class="redBtnEvent whiteellipse"
+
+                 id="path1117"
+
+                 cx="909.25677"
+
+                 cy="402.6503"
+
+                 rx="2.8201485"
+
+                 ry="2.9220562"/>
+
+        <ellipse class="redBtnEvent redellipse"
+
+                 id="ellipse1123"
+
+                 cx="439.76437"
+
+                 cy="402.78433"
+
+                 rx="11.067379"
+
+                 ry="11.309731"/>
+
+        <ellipse class="redBtnEvent redlightellipse"
+
+                 id="ellipse1125"
+
+                 cx="439.76666"
+
+                 cy="402.30878"
+
+                 rx="7.2911406"
+
+                 ry="7.4545412"/>
+
+        <ellipse class="redBtnEvent whiteellipse"
+
+                 id="ellipse1127"
+
+                 cx="439.92105"
+
+                 cy="402.2916"
+
+                 rx="2.8201485"
+
+                 ry="2.9220562"/>
+
+        <!-- красный лейбл-->
+
+        <path class="svg-lable redBtnEvent "
+
+              d="m 277.71544,384.70016 -1.3e-4,38.86434 131.73585,-0.12382 13.87262,-19.6371 -13.29371,-19.13685 z"
+
+              id="lable"
+
+        />
+
+        <!-- текст на красном лейбле -->
+
+        <text x="307.65103" y="408.83499" class="svg-text redBtnEvent "
+
+              id="text1261">
+            <tspan
+
+                    sodipodi:role="line"
+
+                    id="tspan1259"
+
+                    x="307.65103"
+
+                    y="412.83499">520,00 $
+            </tspan>
+        </text>
+
+        <!-- градиент для линии графика при нажатии на зеленую кнопку-->
+
+        <path
+
+                class="path_6 greenBtnEvent "
+
+                d="m 909.06248,402.09686 -469.857,3.14142 0.20629,-452.000998 473.16023,-0.500832 z"
+
+                id="pathredgr"/>
+
+        <!-- линия графика при нажатии на зеленую кнопку-->
+
+        <path
+
+                class="path_5 greenBtnEvent "
+
+                d="m 439.74663,399.8571 c 10.99384,-5.25075 21.71245,-49.23037 21.71245,-49.23037 l 7.34443,25.46682 3.8687,-17.36953 7.91872,-17.61029 8.02925,24.68228 3.51998,-17.96688 3.40508,31.96456 3.88841,9.27503 11.16579,-9.3409 4.42478,-33.32355 10.79912,-10.83989 8.05629,-34.86588 11.69581,85.0574 18.25504,4.34834 4.48749,-22.36412 10.8554,2.67188 7.96028,32.98741 21.88762,0.63663 8.6223,8.80941 6.79548,-21.76668 27.04954,-0.69144 3.17397,-48.57998 14.97819,-4.69456 12.79171,14.02922 2.71615,-13.37379 18.65828,-0.3471 4.30106,8.91213 11.72096,-32.22361 11.45322,36.39392 11.52521,-15.99985 36.12012,-3.50994 35.45162,-26.41664 18.56996,9.48893 8.04427,23.80894 8.61021,-11.23865 21.60472,0.3593 7.53469,-33.06469 10.81223,-3.37103 4.63498,23.01744 16.66218,-3.06765 v 0"
+
+                id="pathgreen" stroke-dasharray="1026" stroke-dashoffset="1026">
+
+            <animate id="p3" attributeName="stroke-dashoffset" begin="svg.click"
+
+                     values="600; 0" dur="5s" repeatCount="1" fill="freeze" calcMode="linear"/>
+
+        </path>
+
+        <!-- зеленая толстая линия при нажатии на зеленую кнопку-->
+
+        <path
+
+                class="greenline greenBtnEvent "
+
+                d="m 421.4761,403.59826 487.0559,-0.88915 0.53048,-0.61225"
+
+                id="path1115"
+
+        />
+
+        <!-- зеленые буллеты-->
+
+        <ellipse class="greenBtnEvent greenellipse"
+
+                 id="path1121"
+
+                 cx="909.09338"
+
+                 cy="402.76419"
+
+                 rx="11.067379"
+
+                 ry="11.309731"/>
+
+        <ellipse class="greenBtnEvent  greenlightellipse"
+
+                 id="path1119"
+
+                 cx="909.15265"
+
+                 cy="402.34979"
+
+                 rx="7.2911406"
+
+                 ry="7.4545412"/>
+
+        <ellipse class="greenBtnEvent whiteellipse"
+
+                 id="path1117"
+
+                 cx="909.25677"
+
+                 cy="402.6503"
+
+                 rx="2.8201485"
+
+                 ry="2.9220562"/>
+
+        <ellipse class="greenBtnEvent greenellipse"
+
+                 id="ellipse1123"
+
+                 cx="439.76437"
+
+                 cy="402.78433"
+
+                 rx="11.067379"
+
+                 ry="11.309731"/>
+
+        <ellipse class="greenBtnEvent greenlightellipse"
+
+                 id="ellipse1125"
+
+                 cx="439.76666"
+
+                 cy="402.30878"
+
+                 rx="7.2911406"
+
+                 ry="7.4545412"/>
+
+        <ellipse class="greenBtnEvent  whiteellipse"
+
+                 id="ellipse1127"
+
+                 cx="439.92105"
+
+                 cy="402.2916"
+
+                 rx="2.8201485"
+
+                 ry="2.9220562"/>
+
+        <!-- зеленый лейбл-->
+
+        <path class="greenBtnEvent  svg-lable-green"
+
+              d="m 277.71544,384.70016 -1.3e-4,38.86434 131.73585,-0.12382 13.87262,-19.6371 -13.29371,-19.13685 z"
+
+              id="lable"
+
+        />
+
+        <!-- текст на зеленом лейбле -->
+
+        <text x="301.65103" y="408.83499" class="greenBtnEvent  svg-text-green"
+
+              id="text1261">
+            <tspan
+
+                    sodipodi:role="line"
+
+                    id="tspan1259"
+
+                    x="307.65103"
+
+                    y="412.83499">520,00 $
+            </tspan>
+        </text>
+
+    </svg>
+
 </div>
+
+
+<script>
+
+    // Функция анимации призагрузке страницы
+
+    function go() {
+
+        var el = document.getElementById("p1");
+
+        var elt = document.getElementById("svg");
+
+        el.beginElement();
+
+        elt.setAttribute("style", "left:0");
+
+
+    }
+
+    go()
+
+    // Функция анимации по клику на красную кнопку
+
+    function RedBtnEvent(elid) {
+
+        var elSelector = '#' + elid;
+
+        var el = document.querySelector(elSelector);
+
+        var els = document.querySelectorAll('.redBtnEvent');
+
+        var elt = document.getElementById("svg");
+
+        var path_1 = document.getElementById("p2");
+
+        el.addEventListener('click', function (e) {
+
+            for (var i = 0; i < els.length; i++) {
+
+                els[i].setAttribute("style", "display:block");
+
+                els[i].classList.add("class", "visible");
+
+                elt.setAttribute("style", "transition: 4s linear; left:-50%");
+
+                path_1.beginElement();
+
+                setTimeout(function () {
+
+                    window.location.href = 'https://reportz.kintura.io/click'; //перенаправление на страницу при клике на красную кнопку
+
+                }, 5000); // через сколько секунд перенаправить
+
+
+            }
+
+            document.querySelector('.btn_wrapper').setAttribute("style", "display:none")
+            document.querySelector('.title h1').setAttribute("style", "display:none")
+        });
+
+    }
+
+    <!--Функция анимации по клику на зеленую кнопку-->
+
+    function GreenBtnEvent(elid) {
+
+        var elSelector = '#' + elid;
+
+        var el = document.querySelector(elSelector);
+
+        var els = document.querySelectorAll('.greenBtnEvent');
+
+        var elt = document.getElementById("svg");
+
+        var path_1 = document.getElementById("p3");
+
+        el.addEventListener('click', function (e) {
+
+            for (var i = 0; i < els.length; i++) {
+
+                els[i].setAttribute("style", "display:block");
+
+                els[i].classList.add("class", "visible");
+
+                elt.setAttribute("style", "transition: 4s linear; left:-50%");
+
+                path_1.beginElement();
+
+                setTimeout(function () {
+
+                    window.location.href = 'https://reportz.kintura.io/click'; //перенаправление на страницу при клике на зеленую кнопку
+
+                }, 7000);  // через сколько секунд перенаправить
+
+
+            }
+
+            document.querySelector('.btn_wrapper').setAttribute("style", "display:none")
+            document.querySelector('.title h1').setAttribute("style", "display:none")
+        });
+
+    }
+
+    RedBtnEvent('btn_one')
+
+    GreenBtnEvent('btn_two')
+
+</script>
+
 </body>
+
 
 </html>
